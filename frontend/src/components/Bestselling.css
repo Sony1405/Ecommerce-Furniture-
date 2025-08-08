@@ -1,0 +1,122 @@
+.bscard {
+  margin-top: 50px;
+}
+
+/* Product Image */
+.product-image {
+  height: 220px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Image Hover */
+.product-image-wrapper:hover .product-image {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+}
+
+.col-sm-4,
+.product-card {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Hover Background Overlay */
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  background-color: #e8f0ef;
+  border-radius: 16px;
+  transition: top 0.4s ease;
+  z-index: 1;
+  display: none;
+}
+
+.product-card:hover::before {
+  top: 150px;
+  display: block;
+}
+
+/* Plus Button (Clickable) */
+.plus-btn {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.7);
+  background: #000;
+  color: #fff;
+  font-size: 26px;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  border: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 5;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.product-card:hover .plus-btn {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Text position */
+h5, p {
+  position: relative;
+  z-index: 2;
+}
+
+/* Scroll Animations */
+.fade-left,
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate .fade-left {
+  opacity: 1;
+  transform: translateX(0);
+  animation: fadeSlideLeft 0.8s ease-in-out;
+}
+
+.animate .fade-up {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeSlideUp 0.6s ease-in-out;
+}
+
+@keyframes fadeSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

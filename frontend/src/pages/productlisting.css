@@ -1,0 +1,161 @@
+body{
+  background-color: #e9eff5;
+
+}
+
+.pcard {
+  width: 150vh;
+}
+
+/* Card container with image and overlay */
+.image-card {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay content */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45); /* semi-transparent overlay */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  opacity: 1;
+  transition: 0.3s ease;
+  padding: 20px;
+}
+
+.overlay h4 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.overlay .btn {
+    border-radius: 20px;
+    border: none;
+    width: 150px;
+  font-size: 0.9rem;
+}
+
+
+/* --------------------------- */
+/* CARD ANIMATION ON LOAD      */
+/* --------------------------- */
+@keyframes fadeUpScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.image-card {
+  animation: fadeUpScale 0.7s ease-in-out forwards;
+  opacity: 0;
+  transform: scale(0.95) translateY(30px);
+}
+
+.row > .col-md-6:nth-child(1) .image-card { animation-delay: 0.1s; }
+.row > .col-md-6:nth-child(2) .image-card { animation-delay: 0.2s; }
+.row > .col-md-6:nth-child(3) .image-card { animation-delay: 0.3s; }
+.row > .col-md-6:nth-child(4) .image-card { animation-delay: 0.4s; }
+
+/* --------------------------- */
+/* IMAGE HOVER ZOOM            */
+/* --------------------------- */
+.card-img {
+  transition: transform 0.4s ease-in-out;
+}
+
+.image-card:hover .card-img {
+  transform: scale(1.08);
+}
+
+/* --------------------------- */
+/* OVERLAY SLIDE-IN & OPACITY  */
+/* --------------------------- */
+.overlay {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.5s ease;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.image-card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* --------------------------- */
+/* BUTTON GLOW & FEEDBACK      */
+/* --------------------------- */
+.btn {
+  transition: all 0.3s ease;
+  border-radius: 25px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  background-color: #fff;
+  color: #000;
+}
+
+.btn:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* --------------------------- */
+/* PAGINATION BOUNCE EFFECT    */
+/* --------------------------- */
+.page-link {
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: 500;
+}
+
+.page-link:hover {
+  background-color: #000;
+  color: #fff;
+  transform: translateY(-2px) scale(1.1);
+}
+
+.page-item.active .page-link {
+  background-color: #000;
+  color: #fff;
+  transform: scale(1.12);
+  font-weight: bold;
+}
+
+.page-item.disabled .page-link {
+  opacity: 0.5;
+  pointer-events: none;
+}

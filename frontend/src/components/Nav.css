@@ -1,0 +1,60 @@
+/* Navbar Base Styles */
+.navbar {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 600;
+  color: white;
+}
+
+.nav-link:hover {
+  color: #FFD700;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Navbar Icon Styles */
+.navbar .nav-link svg {
+  font-size: 18px;
+  color: white;
+}
+
+.navbar .nav-link svg:hover {
+  color: #FFD700;
+}
+
+/* Navbar Background Animation */
+@keyframes colorPulse {
+  0%   { background-color: #1d3557; }
+  25%  { background-color: #457b9d; }
+  50%  { background-color: #1d3557; }
+  75%  { background-color: #457b9d; }
+  100% { background-color: #1d3557; }
+}
+
+.animated-navbar {
+  animation: colorPulse 6s infinite;
+  color: white;
+}
+
+/* Modal Style */
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.529);
+  color: white;
+  border-radius: 20px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.modal-title {
+  /* border: 2px solid; */
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.head{
+  margin-left: 140px;
+}
+
